@@ -32,4 +32,10 @@ public class ColourCircles extends View {
             canvas.drawOval(rect, paint);
         }
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        setMeasuredDimension(widthSize, widthSize / colors.length);
+    }
 }
