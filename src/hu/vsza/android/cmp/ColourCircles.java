@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 public class ColourCircles extends View {
     protected int colors[] = new int[] {Color.RED, Color.GREEN, Color.BLUE};
     protected final static float margin = 0.03f;
+    protected int selected_color_index = 0;
 
     public ColourCircles(Context context) {
         super(context);
@@ -28,7 +29,9 @@ public class ColourCircles extends View {
             RectF rect = new RectF((i + margin) * size, margin * size,
                     (i + 1 - margin) * size - 1, (1 - margin) * size - 1);
             Paint paint = new Paint();
-            paint.setColor(colors[i]);
+            synchronized (colors) {
+                paint.setColor(colors[i]);
+            }
             canvas.drawOval(rect, paint);
         }
     }
@@ -37,5 +40,18 @@ public class ColourCircles extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         setMeasuredDimension(widthSize, widthSize / colors.length);
+    }
+
+    public void setCurrentColor(int color) {
+        synchronized (colors) {
+            colors[selected_color_index] = color;
+        }
+        invalidate();
+    }
+
+    public int getCurrentColor() {
+        synchronized (colors) {
+            return colors[selected_color_index];
+        }
     }
 }
