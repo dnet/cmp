@@ -74,5 +74,68 @@
 	   android:max="255"
 	   />
    </LinearLayout>
+<LinearLayout
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:paddingTop="25dp"
+	>
+    <TextView
+		android:layout_width="wrap_content"
+		android:layout_height="fill_parent"
+		android:text="H"
+		android:gravity="center|center_vertical"
+		android:paddingLeft="10dp"
+		android:textStyle="bold"
+		/>
+	<SeekBar
+	   android:layout_width="fill_parent"
+	   android:layout_height="wrap_content"
+	   android:layout_margin="10px"
+	   android:id="@+id/seekbar_hue"
+	   android:max="359"
+	   />
+   </LinearLayout>
+<LinearLayout
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+    <TextView
+		android:layout_width="wrap_content"
+		android:layout_height="fill_parent"
+		android:text="S"
+		android:gravity="center|center_vertical"
+		android:paddingLeft="10dp"
+		android:textStyle="bold"
+		/>
+	<SeekBar
+	   android:layout_width="fill_parent"
+	   android:layout_height="wrap_content"
+	   android:layout_margin="10px"
+	   android:id="@+id/seekbar_saturation"
+	   android:max="100"
+	   />
+	   </LinearLayout>
+<LinearLayout
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+    <TextView
+		android:layout_width="wrap_content"
+		android:layout_height="fill_parent"
+		android:text="V"
+		android:gravity="center|center_vertical"
+		android:paddingLeft="10dp"
+		android:textStyle="bold"
+		/>
+	<SeekBar
+	   android:layout_width="fill_parent"
+	   android:layout_height="wrap_content"
+	   android:layout_margin="10px"
+	   android:id="@+id/seekbar_value"
+	   android:max="100"
+	   />
+   </LinearLayout>
 </LinearLayout>
-

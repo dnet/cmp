@@ -17,7 +17,9 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
         setContentView(R.layout.main);
         circles = (ColourCircles)findViewById(R.id.circles);
         circles.setColorChangeListener(this);
-        for (int id : new Integer[] {R.id.seekbar_red, R.id.seekbar_green, R.id.seekbar_blue}) {
+        for (int id : new Integer[] {R.id.seekbar_red, R.id.seekbar_green,
+                R.id.seekbar_blue, R.id.seekbar_hue, R.id.seekbar_saturation,
+                R.id.seekbar_value}) {
             SeekBar sb = (SeekBar)findViewById(id);
             sb.setOnSeekBarChangeListener(this);
         }
