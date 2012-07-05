@@ -77,9 +77,7 @@ public class ColourCircles extends View {
                     synchronized (colors) {
                         if (new_color_index != selected_color_index) {
                             selected_color_index = new_color_index;
-                            if (color_change_listener != null) {
-                                color_change_listener.onColorChanged(colors[selected_color_index]);
-                            }
+                            fireColorChange();
                             Toast.makeText(c,
                                 c.getString(R.string.selected_color_index_changed,
                                     selected_color_index), Toast.LENGTH_SHORT).show();
@@ -89,6 +87,12 @@ public class ColourCircles extends View {
                 return true;
             }
         });
+    }
+
+    protected void fireColorChange() {
+        if (color_change_listener != null) {
+            color_change_listener.onColorChanged(colors[selected_color_index]);
+        }
     }
 
     protected float getCircleSize() {
