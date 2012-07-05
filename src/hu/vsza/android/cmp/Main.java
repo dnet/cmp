@@ -65,6 +65,15 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
             case R.id.seekbar_blue:
                 changeColorWithMaskShift(progress, 0xffffff00, 0);
                 break;
+            case R.id.seekbar_hue:
+                changeColorWithHSV(HUE, progress);
+                break;
+            case R.id.seekbar_saturation:
+                changeColorWithHSV(SATURATION, (float)progress / SV_SCALE);
+                break;
+            case R.id.seekbar_value:
+                changeColorWithHSV(VALUE, (float)progress / SV_SCALE);
+                break;
         }
     }
 
@@ -72,6 +81,11 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
         int color = circles.getCurrentColor();
         color = color & mask | value << shift;
         circles.setCurrentColor(color);
+    }
+
+    public void changeColorWithHSV(int index, float value) {
+        hsv[index] = value;
+        circles.setCurrentColor(Color.HSVToColor(hsv));
     }
 
     @Override
