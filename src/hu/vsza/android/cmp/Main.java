@@ -44,18 +44,22 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        int color = circles.getCurrentColor();
         switch (seekBar.getId()) {
             case R.id.seekbar_red:
-                color = color & 0xff00ffff | progress << 16;
+                changeColorWithMaskShift(progress, 0xff00ffff, 16);
                 break;
             case R.id.seekbar_green:
-                color = color & 0xffff00ff | progress << 8;
+                changeColorWithMaskShift(progress, 0xffff00ff, 8);
                 break;
             case R.id.seekbar_blue:
-                color = color & 0xffffff00 | progress;
+                changeColorWithMaskShift(progress, 0xffffff00, 0);
                 break;
         }
+    }
+
+    public void changeColorWithMaskShift(int value, int mask, int shift) {
+        int color = circles.getCurrentColor();
+        color = color & mask | value << shift;
         circles.setCurrentColor(color);
     }
 
