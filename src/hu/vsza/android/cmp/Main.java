@@ -3,8 +3,9 @@ package hu.vsza.android.cmp;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.*;
+import android.graphics.Color;
 
-public class Main extends Activity implements SeekBar.OnSeekBarChangeListener
+public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, ColorChangeListener
 {
     protected ColourCircles circles;
 
@@ -15,10 +16,18 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         circles = (ColourCircles)findViewById(R.id.circles);
+        circles.setColorChangeListener(this);
         for (int id : new Integer[] {R.id.seekbar_red, R.id.seekbar_green, R.id.seekbar_blue}) {
             SeekBar sb = (SeekBar)findViewById(id);
             sb.setOnSeekBarChangeListener(this);
         }
+    }
+
+    @Override
+    public void onColorChanged(int color) {
+        ((SeekBar)findViewById(R.id.seekbar_red)).setProgress(Color.red(color));
+        ((SeekBar)findViewById(R.id.seekbar_green)).setProgress(Color.green(color));
+        ((SeekBar)findViewById(R.id.seekbar_blue)).setProgress(Color.blue(color));
     }
 
     @Override
