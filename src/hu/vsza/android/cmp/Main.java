@@ -21,6 +21,7 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
             SeekBar sb = (SeekBar)findViewById(id);
             sb.setOnSeekBarChangeListener(this);
         }
+        onColorChanged(circles.getCurrentColor());
     }
 
     @Override

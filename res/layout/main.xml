@@ -30,7 +30,6 @@
 	   android:layout_margin="10px"
 	   android:id="@+id/seekbar_red"
 	   android:max="255"
-	   android:progress="255"
 	   />
    </LinearLayout>
 <LinearLayout
@@ -52,7 +51,6 @@
 	   android:layout_margin="10px"
 	   android:id="@+id/seekbar_green"
 	   android:max="255"
-	   android:progress="0"
 	   />
 	   </LinearLayout>
 <LinearLayout
@@ -74,7 +72,6 @@
 	   android:layout_margin="10px"
 	   android:id="@+id/seekbar_blue"
 	   android:max="255"
-	   android:progress="0"
 	   />
    </LinearLayout>
 </LinearLayout>
