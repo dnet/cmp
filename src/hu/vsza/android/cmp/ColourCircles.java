@@ -1,8 +1,9 @@
 package hu.vsza.android.cmp;
 
-import android.view.View;
+import android.view.*;
 import android.graphics.*;
 import android.content.Context;
+import android.widget.Toast;
 import android.util.AttributeSet;
 
 public class ColourCircles extends View {
@@ -12,14 +13,17 @@ public class ColourCircles extends View {
 
     public ColourCircles(Context context) {
         super(context);
+        init(context);
     }
 
     public ColourCircles(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     public ColourCircles(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init(context);
     }
 
     @Override
@@ -34,6 +38,27 @@ public class ColourCircles extends View {
             }
             canvas.drawOval(rect, paint);
         }
+    }
+
+    protected void init(Context context) {
+        final Context c = context;
+        setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    int new_color_index = (int)(event.getX() / getCircleSize());
+                    synchronized (colors) {
+                        if (new_color_index != selected_color_index) {
+                            selected_color_index = new_color_index;
+                            Toast.makeText(c,
+                                c.getString(R.string.selected_color_index_changed,
+                                    selected_color_index), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                return true;
+            }
+        });
     }
 
     protected float getCircleSize() {

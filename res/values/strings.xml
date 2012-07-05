@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Colour Me Pretty!</string>
+    <string name="selected_color_index_changed">You\'re now editing color no. %d</string>
 </resources>
