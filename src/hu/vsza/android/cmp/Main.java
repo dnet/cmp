@@ -24,6 +24,18 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        circles.saveToBundle(outState);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        circles.loadFromBundle(savedInstanceState);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
     public void onColorChanged(int color) {
         ((SeekBar)findViewById(R.id.seekbar_red)).setProgress(Color.red(color));
         ((SeekBar)findViewById(R.id.seekbar_green)).setProgress(Color.green(color));
