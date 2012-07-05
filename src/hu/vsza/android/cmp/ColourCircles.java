@@ -24,7 +24,7 @@ public class ColourCircles extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        float size = (float)getWidth() / (float)colors.length;
+        float size = getCircleSize();
         for (int i = 0; i < colors.length; i++) {
             RectF rect = new RectF((i + margin) * size, margin * size,
                     (i + 1 - margin) * size - 1, (1 - margin) * size - 1);
@@ -34,6 +34,10 @@ public class ColourCircles extends View {
             }
             canvas.drawOval(rect, paint);
         }
+    }
+
+    protected float getCircleSize() {
+        return (float)getWidth() / (float)colors.length;
     }
 
     @Override
