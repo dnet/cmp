@@ -108,6 +108,7 @@ public class ColourCircles extends View {
     public void setCurrentColor(int color) {
         synchronized (colors) {
             colors[selected_color_index] = color;
+            fireColorChange();
         }
         invalidate();
     }
