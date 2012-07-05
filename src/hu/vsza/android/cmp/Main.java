@@ -44,6 +44,7 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        if (!fromUser) return;
         switch (seekBar.getId()) {
             case R.id.seekbar_red:
                 changeColorWithMaskShift(progress, 0xff00ffff, 16);
