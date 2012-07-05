@@ -43,7 +43,6 @@ public class ColourCircles extends View {
             }
             invalidate();
         }
-
     }
 
     public void saveToBundle(Bundle b) {
