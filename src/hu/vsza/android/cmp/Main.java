@@ -8,6 +8,8 @@ import android.graphics.Color;
 public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, ColorChangeListener
 {
     protected ColourCircles circles;
+    protected final static int HUE = 0, SATURATION = 1, VALUE = 2;
+    protected final static float SV_SCALE = 100.0f;
 
     /** Called when the activity is first created. */
     @Override
@@ -43,6 +45,11 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
         ((SeekBar)findViewById(R.id.seekbar_red)).setProgress(Color.red(color));
         ((SeekBar)findViewById(R.id.seekbar_green)).setProgress(Color.green(color));
         ((SeekBar)findViewById(R.id.seekbar_blue)).setProgress(Color.blue(color));
+        float[] hsv = new float[3];
+        Color.colorToHSV(color, hsv);
+        ((SeekBar)findViewById(R.id.seekbar_hue)).setProgress((int)hsv[HUE]);
+        ((SeekBar)findViewById(R.id.seekbar_saturation)).setProgress((int)(hsv[SATURATION] * SV_SCALE));
+        ((SeekBar)findViewById(R.id.seekbar_value)).setProgress((int)(hsv[VALUE] * SV_SCALE));
     }
 
     @Override
