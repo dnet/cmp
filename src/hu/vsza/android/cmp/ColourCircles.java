@@ -79,7 +79,8 @@ public class ColourCircles extends View {
                             fireColorChange();
                             Toast.makeText(c,
                                 c.getString(R.string.selected_color_index_changed,
-                                    selected_color_index), Toast.LENGTH_SHORT).show();
+                                    selected_color_index + 1),
+                                Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
