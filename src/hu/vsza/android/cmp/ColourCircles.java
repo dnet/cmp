@@ -126,9 +126,15 @@ public class ColourCircles extends View {
         for (int i = 0; i < count; i++) {
             new_colors[i] = (i >= colors.length) ? Color.RED : colors[i];
         }
-        colors = new_colors;
-        if (selected_color_index >= count) {
-            selected_color_index = count - 1;
+        boolean index_changed;
+        synchronized (color_lock) {
+            colors = new_colors;
+            index_changed = selected_color_index >= count;
+            if (index_changed) {
+                selected_color_index = count - 1;
+            }
+        }
+        if (index_changed) {
             fireColorChange();
         }
         requestLayout();
