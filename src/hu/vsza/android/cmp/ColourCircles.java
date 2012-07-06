@@ -67,8 +67,7 @@ public class ColourCircles extends View {
         }
     }
 
-    protected void init(Context context) {
-        final Context c = context;
+    protected void init(final Context c) {
         setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
