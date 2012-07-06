@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/circle_count_2" android:title="@string/display_2_circles" />
+        <item android:id="@+id/circle_count_3" android:title="@string/display_3_circles" android:checked="true" />
+        <item android:id="@+id/circle_count_5" android:title="@string/display_5_circles" />
+    </group>
+</menu>

@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">Colour Me Pretty!</string>
     <string name="selected_color_index_changed">You\'re now editing color no. %d</string>
+    <string name="display_2_circles">Display 2 circles</string>
+    <string name="display_3_circles">Display 3 circles</string>
+    <string name="display_5_circles">Display 5 circles</string>
 </resources>

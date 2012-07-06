@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.*;
 import android.graphics.Color;
+import android.view.Menu;
 
 public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, ColorChangeListener
 {
@@ -93,4 +94,10 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options, menu);
+        return true;
+    }
 }
