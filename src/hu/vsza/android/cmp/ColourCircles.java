@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.os.Bundle;
 
 public class ColourCircles extends View {
-    protected int colors[] = new int[] {Color.RED, Color.GREEN, Color.BLUE};
+    protected int colors[] = {Color.RED, Color.GREEN, Color.BLUE};
     protected final static float margin = 0.03f;
     protected int selected_color_index = 0;
     protected ColorChangeListener color_change_listener = null;
