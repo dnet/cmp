@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 public class ColourCircles extends View {
     protected int colors[] = {Color.RED, Color.GREEN, Color.BLUE};
+    protected Object color_lock = new Object();
     protected final static float margin = 0.03f;
     protected int selected_color_index = 0;
     protected ColorChangeListener color_change_listener = null;
@@ -37,7 +38,7 @@ public class ColourCircles extends View {
 
     public void loadFromBundle(Bundle b) {
         if (b.containsKey(BUNDLE_KEY_COLORS) && b.containsKey(BUNDLE_KEY_COLOR_INDEX)) {
-            synchronized (colors) {
+            synchronized (color_lock) {
                 colors = b.getIntArray(BUNDLE_KEY_COLORS);
                 selected_color_index = b.getInt(BUNDLE_KEY_COLOR_INDEX);
             }
@@ -46,7 +47,7 @@ public class ColourCircles extends View {
     }
 
     public void saveToBundle(Bundle b) {
-        synchronized (colors) {
+        synchronized (color_lock) {
             b.putIntArray(BUNDLE_KEY_COLORS, colors);
             b.putInt(BUNDLE_KEY_COLOR_INDEX, selected_color_index);
         }
@@ -59,7 +60,7 @@ public class ColourCircles extends View {
             RectF rect = new RectF((i + margin) * size, margin * size,
                     (i + 1 - margin) * size - 1, (1 - margin) * size - 1);
             Paint paint = new Paint();
-            synchronized (colors) {
+            synchronized (color_lock) {
                 paint.setColor(colors[i]);
             }
             canvas.drawOval(rect, paint);
@@ -73,7 +74,7 @@ public class ColourCircles extends View {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     int new_color_index = (int)(event.getX() / getCircleSize());
-                    synchronized (colors) {
+                    synchronized (color_lock) {
                         if (new_color_index != selected_color_index) {
                             selected_color_index = new_color_index;
                             fireColorChange();
@@ -106,7 +107,7 @@ public class ColourCircles extends View {
     }
 
     public void setCurrentColor(int color) {
-        synchronized (colors) {
+        synchronized (color_lock) {
             colors[selected_color_index] = color;
             fireColorChange();
         }
@@ -114,7 +115,7 @@ public class ColourCircles extends View {
     }
 
     public int getCurrentColor() {
-        synchronized (colors) {
+        synchronized (color_lock) {
             return colors[selected_color_index];
         }
     }
