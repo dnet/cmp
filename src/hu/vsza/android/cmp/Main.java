@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.*;
 import android.graphics.Color;
 import android.view.Menu;
+import android.view.MenuItem;
 
 public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, ColorChangeListener
 {
@@ -99,5 +100,24 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.circle_count_2:
+                circles.setCount(2);
+                item.setChecked(true);
+                break;
+            case R.id.circle_count_3:
+                circles.setCount(3);
+                item.setChecked(true);
+                break;
+            case R.id.circle_count_5:
+                circles.setCount(5);
+                item.setChecked(true);
+                break;
+        }
+        return false;
     }
 }
