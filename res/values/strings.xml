@@ -6,4 +6,7 @@
     <string name="display_3_circles">Display 3 circles</string>
     <string name="display_5_circles">Display 5 circles</string>
     <string name="save_color_set">Save colour set</string>
+    <string name="enter_color_set_name">Enter a name for the colour set</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>

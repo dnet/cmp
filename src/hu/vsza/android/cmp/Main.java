@@ -1,11 +1,13 @@
 package hu.vsza.android.cmp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.widget.*;
 import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.content.DialogInterface;
 
 public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, ColorChangeListener
 {
@@ -118,7 +120,26 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
                 circles.setCount(5);
                 item.setChecked(true);
                 break;
+            case R.id.save_color_set:
+                saveColorSet();
+                break;
         }
         return false;
+    }
+
+    public void saveColorSet() {
+        final EditText et = new EditText(this);
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.save_color_set)
+            .setMessage(R.string.enter_color_set_name)
+            .setView(et)
+            .setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    new ColorStore(Main.this).save(new ColorStore.ColorSet(
+                            et.getText().toString(), circles.getColors()));
+                }
+            })
+        .setNegativeButton(R.string.cancel, null)
+            .show();
     }
 }
