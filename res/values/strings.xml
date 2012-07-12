@@ -5,4 +5,5 @@
     <string name="display_2_circles">Display 2 circles</string>
     <string name="display_3_circles">Display 3 circles</string>
     <string name="display_5_circles">Display 5 circles</string>
+    <string name="save_color_set">Save colour set</string>
 </resources>
