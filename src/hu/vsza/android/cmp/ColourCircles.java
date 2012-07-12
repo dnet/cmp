@@ -138,4 +138,29 @@ public class ColourCircles extends View {
         }
         requestLayout();
     }
+
+    public int[] getColors() {
+        synchronized (color_lock) {
+            int[] retval = new int[colors.length];
+            for (int i = 0; i < colors.length; i++) {
+                retval[i] = colors[i];
+            }
+            return retval;
+        }
+    }
+
+    public void setColors(int[] colors) {
+        final int count = colors.length;
+        synchronized (color_lock) {
+            this.colors = new int[count];
+            for (int i = 0; i < count; i++) {
+                this.colors[i] = colors[i];
+            }
+            if (selected_color_index >= count) {
+                selected_color_index = count - 1;
+            }
+        }
+        fireColorChange();
+        requestLayout();
+    }
 }
