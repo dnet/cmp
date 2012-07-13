@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, ColorChangeListener
 {
@@ -15,6 +16,7 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
     protected final float[] hsv = new float[3];
     protected final static int HUE = 0, SATURATION = 1, VALUE = 2;
     protected final static float SV_SCALE = 100.0f;
+    protected final static int LOAD_COLORSET = 1;
 
     /** Called when the activity is first created. */
     @Override
@@ -123,6 +125,10 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
             case R.id.save_color_set:
                 saveColorSet();
                 break;
+            case R.id.load_color_set:
+                startActivityForResult(new Intent(this, ColorSetList.class),
+                        LOAD_COLORSET);
+                break;
         }
         return false;
     }
@@ -141,5 +147,14 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
             })
         .setNegativeButton(R.string.cancel, null)
             .show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+            Intent data) {
+        if (requestCode == LOAD_COLORSET && resultCode == RESULT_OK) {
+            final int[] colors = data.getIntArrayExtra(ColorSetList.SELECTED_COLORSET);
+            circles.setColors(colors);
+        }
     }
 }

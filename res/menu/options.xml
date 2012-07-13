@@ -6,4 +6,5 @@
         <item android:id="@+id/circle_count_5" android:title="@string/display_5_circles" />
     </group>
     <item android:id="@+id/save_color_set" android:title="@string/save_color_set" />
+    <item android:id="@+id/load_color_set" android:title="@string/load_color_set" />
 </menu>
