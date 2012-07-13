@@ -12,7 +12,7 @@ Usage
 Requirements
 ------------
 
- - The project is tested on API level 7 (Android 2.1), but most (if not all) features used were already in API level 1.
+ - API level 8 (Android 2.2 Froyo)
  - The application requires no special permissions.
 
 Building
