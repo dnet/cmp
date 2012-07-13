@@ -11,7 +11,7 @@ import android.content.DialogInterface;
 
 public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, ColorChangeListener
 {
-    protected ColourCircles circles;
+    protected ColourCirclesEditor circles;
     protected final float[] hsv = new float[3];
     protected final static int HUE = 0, SATURATION = 1, VALUE = 2;
     protected final static float SV_SCALE = 100.0f;
@@ -22,7 +22,7 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        circles = (ColourCircles)findViewById(R.id.circles);
+        circles = (ColourCirclesEditor)findViewById(R.id.circles);
         circles.setColorChangeListener(this);
         final int[] seekbar_ids = {R.id.seekbar_red, R.id.seekbar_green,
             R.id.seekbar_blue, R.id.seekbar_hue, R.id.seekbar_saturation,

@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     >
 <view
-    class="hu.vsza.android.cmp.ColourCircles"
+    class="hu.vsza.android.cmp.ColourCirclesEditor"
     android:id="@+id/circles"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
