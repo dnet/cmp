@@ -12,5 +12,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="ColorSetList"
+            android:label="@string/choose_color_set"/>
     </application>
 </manifest> 
