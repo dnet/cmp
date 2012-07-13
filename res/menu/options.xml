@@ -7,4 +7,5 @@
     </group>
     <item android:id="@+id/save_color_set" android:title="@string/save_color_set" />
     <item android:id="@+id/load_color_set" android:title="@string/load_color_set" />
+    <item android:id="@+id/about_current_color" android:title="@string/about_current_color" />
 </menu>

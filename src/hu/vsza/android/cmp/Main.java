@@ -129,6 +129,9 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
                 startActivityForResult(new Intent(this, ColorSetList.class),
                         LOAD_COLORSET);
                 break;
+            case R.id.about_current_color:
+                showColorInfo();
+                break;
         }
         return false;
     }
@@ -156,5 +159,17 @@ public class Main extends Activity implements SeekBar.OnSeekBarChangeListener, C
             final int[] colors = data.getIntArrayExtra(ColorSetList.SELECTED_COLORSET);
             circles.setColors(colors);
         }
+    }
+
+    protected void showColorInfo() {
+        final int current_color = circles.getCurrentColor();
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.about_current_color)
+            .setMessage(getString(R.string.color_info,
+                        Color.red(current_color),
+                        Color.green(current_color),
+                        Color.blue(current_color)))
+            .setNeutralButton(R.string.close, null)
+            .show();
     }
 }

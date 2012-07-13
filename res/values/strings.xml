@@ -11,4 +11,7 @@
     <string name="cancel">Cancel</string>
     <string name="load_color_set">Load colour set</string>
     <string name="choose_color_set">Choose a colour set</string>
+    <string name="about_current_color">About selected colour</string>
+    <string name="color_info">Red: %1$d\nGreen: %2$d\nBlue: %3$d\nHTML: #%1$02X%2$02X%3$02X</string>
+    <string name="close">Close</string>
 </resources>
